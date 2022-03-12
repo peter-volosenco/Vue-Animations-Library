@@ -4,7 +4,7 @@
     <router-link to="/about">About</router-link>
   </div>
   <router-view v-slot="{ Component }">
-    <transition name="route" mode="out-in">
+    <transition mode="out-in">
       <component :is="Component"></component>
     </transition>
   </router-view>
