@@ -34,7 +34,7 @@
 
 .v-enter-active,
 .v-leave-active {
-  transition: opacity 0.15s ease;
+  transition: opacity 0.25s ease;
 }
 
 .v-enter-from,
