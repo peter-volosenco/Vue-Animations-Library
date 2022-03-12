@@ -1,3 +1,3 @@
-# vue-huf93n
+# Vue Animations
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/vue-huf93n)
+[Edit on Codesandbox ⚡️](https://codesandbox.io/s/quizzical-feistel-lgfqc7)
