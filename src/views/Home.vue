@@ -34,7 +34,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .btn {
   padding: 10px 20px;
   background-color: grey;
