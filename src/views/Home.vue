@@ -1,18 +1,71 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div :class="btnActive" @click="open = !open">{{ btnText }}</div>
+    <transition>
+      <div v-if="open">
+        <img alt="Vue logo" src="../assets/logo.png" />
+        <HelloWorld msg="Welcome to Your Vue.js App" />
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
+  data: function () {
+    return {
+      open: false,
+    };
+  },
+  computed: {
+    btnActive: function () {
+      return "btn " + (this.open ? "active" : "");
+    },
+    btnText: function () {
+      return this.open ? "Hide page" : "View page";
+    },
+  },
   components: {
-    HelloWorld
-  }
-}
+    HelloWorld,
+  },
+};
 </script>
+
+<style>
+.btn {
+  padding: 10px 20px;
+  background-color: grey;
+  border-radius: 8px;
+  display: inline-block;
+  color: White;
+  cursor: pointer;
+  margin-bottom: 30px;
+  transition: background 0.8s ease;
+}
+.btn.active {
+  background: #42b983;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+/* .fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+} */
+</style>
