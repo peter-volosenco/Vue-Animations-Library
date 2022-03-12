@@ -1,3 +1,3 @@
 # Vue Animations
 
-[Edit on Codesandbox ⚡️](https://codesandbox.io/s/quizzical-feistel-lgfqc7)
+[Edit on Codesandbox ⚡️](https://codesandbox.io/s/github/pockks/Vue-Vuex/tree/master/)
