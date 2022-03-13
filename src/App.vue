@@ -11,6 +11,8 @@
 </template>
 
 <style lang="scss">
+@import "./scss/animate.css";
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
