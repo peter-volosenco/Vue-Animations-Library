@@ -4,7 +4,8 @@
     <div :class="btnActive" @click="open = !open">{{ btnText }}</div>
     <transition name="bounceIn">
       <div v-if="open">
-        <img alt="Vue logo" src="../assets/logo.png" />
+        <img class="logo1" alt="Vue logo" src="../assets/logo.png" />
+        <img class="logo2" alt="Vue logo" src="../assets/logo.png" />
         <HelloWorld msg="Welcome to Your Vue.js App" />
       </div>
     </transition>
@@ -43,7 +44,7 @@ export default {
   display: inline-block;
   color: White;
   cursor: pointer;
-  margin-bottom: 30px;
+  margin-bottom: 38px;
   transition: background 0.8s ease;
 }
 .btn.active {
@@ -58,6 +59,15 @@ export default {
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
+}
+
+.logo1 {
+  transform: rotate(90deg);
+  border-top: 50px solid #42b983;
+}
+.logo2 {
+  transform: rotate(-90deg);
+  border-top: 50px solid #42b983;
 }
 
 /* .fade-enter-active,
