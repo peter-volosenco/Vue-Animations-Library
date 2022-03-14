@@ -1,7 +1,8 @@
 <template>
   <div class="home">
+    <h1>Home</h1>
     <div :class="btnActive" @click="open = !open">{{ btnText }}</div>
-    <transition>
+    <transition name="bounceIn">
       <div v-if="open">
         <img alt="Vue logo" src="../assets/logo.png" />
         <HelloWorld msg="Welcome to Your Vue.js App" />
@@ -68,4 +69,26 @@ export default {
 .fade-leave-to {
   opacity: 0;
 } */
+
+.fadeIn-enter-active,
+.fadeIn-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fadeIn-enter-from,
+.fadeIn-leave-to {
+  opacity: 0;
+}
+
+.bounceIn-enter-active,
+.bounceIn-leave-active {
+  transition: all 0.5s ease;
+}
+
+.bounceIn-enter-from,
+.bounceIn-leave-to {
+  opacity: 0;
+  transform: translateY(400px);
+  -webkit-transform: translateY(400px);
+}
 </style>
