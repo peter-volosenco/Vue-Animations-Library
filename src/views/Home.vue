@@ -39,6 +39,9 @@ export default {
 </script>
 
 <style scoped>
+.home{
+  min-height: 100vh;
+}
 .btn {
   padding: 10px 20px;
   background-color: grey;
