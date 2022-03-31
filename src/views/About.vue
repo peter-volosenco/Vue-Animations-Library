@@ -1,20 +1,24 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1><span>This is an </span><span>about page</span></h1>
 
-    <div class="parallax-overlay" :style="{ backgroundPosition: position, backgroundSize: size }">
+    <div class="relative">
+      <div class="parallax-overlay" :style="{ backgroundPosition: position, backgroundSize: size }"></div>
       <img src="@/img/ice-bg2.jpg"/>
     </div>
 
-    <div class="parallax-overlay" :style="{ backgroundPosition: position, backgroundSize: sizeAlter }">
+    <div class="relative">
+      <div class="parallax-overlay" :style="{ backgroundPosition: position, backgroundSize: sizeAlter }"></div>
       <img src="@/img/ice-bg3.jpg"/>
     </div>
 
-    <div class="parallax-overlay" :style="{ backgroundPosition: position, backgroundSize: size }">
+    <div class="relative">
+      <div class="parallax-overlay" :style="{ backgroundPosition: position, backgroundSize: size }"></div>
       <img src="@/img/ice-bg4.jpg"/>
     </div>
 
-    <div class="parallax-overlay overlayBgAnim">
+    <div class="relative">
+      <div class="parallax-overlay overlayBgAnim"></div>
       <img src="@/img/ice-bg.jpg"/>
     </div>
 
@@ -22,21 +26,65 @@
 </template>
 
 <style scoped>
-  img {
-    width:100%;
-    opacity: 0.6;
-    animation: rotateGrow 5000ms ease infinite alternate;
+  .about {
+    padding-bottom: 900px;
+  }
+  h1 {
+    margin-bottom: 300px;
+    position: relative;
+    z-index: 5;
+    transform: rotate(15deg);
+  }
+  h1 span {display: inline-block; padding: 2px 4px;}
+  h1 span:nth-child(odd) {
+    background-color: white;
+    padding-left: 6px;
+    transform: skewX(-15deg);
+  }
+   h1 span:nth-child(even) {
+    background-color: black;
+    padding-right: 6px;
+    transform: skewX(-15deg);
   }
 
-  @keyframes rotateGrow {
+  .relative {
+    position: relative;
+    margin: -300px 0;
+  }
+
+  img {
+    width:100%;
+  }
+
+  .relative:nth-child(odd) {
+    animation: imgRotateAnim 5000ms ease infinite alternate;
+  }
+
+  .relative:nth-child(even) {
+    animation: imgRotateAlterAnim 5000ms ease infinite alternate;
+  }
+
+  @keyframes imgRotateAnim {
     0% {
-      transform:scale(1) rotate(0);
+      transform:scale(1) rotate(15deg);
     }
     50% {
-      transform:scale(1.1) rotate(2deg);
+      transform:scale(1.1) rotate(15deg);
     }
     100% {
-      transform:scale(1) rotate(0);
+      transform:scale(1) rotate(15deg);
+    }
+  }
+
+  @keyframes imgRotateAlterAnim {
+    0% {
+      transform:scale(1) rotate(-15deg);
+    }
+    50% {
+      transform:scale(1.01) rotate(-15deg);
+    }
+    100% {
+      transform:scale(1) rotate(-15deg);
     }
   }
 
@@ -46,27 +94,30 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    margin: 100px 0;
     width: 100%;
     overflow: hidden;
     animation: repeatBG 3200ms ease infinite alternate;
+    box-shadow: 0 12px 24px rgba(0,0,0, 0.3);
+    position: absolute;
+    left: 0;
+    top:0;
+    width:100%;
+    height: 100%;
+    z-index: 2;
   }
 
   @keyframes repeatBG {
     0% {
       background-repeat: repeat-x;
-      opacity: 0.9;
-      transform: skew(0deg, 0.2deg);
+      /* transform: skew(0deg, 0.2deg); */
     }
     50% {
       background-repeat: repeat-y;
-      opacity: 1;
-      transform: skew(0deg, 0deg);
+      /* transform: skew(0deg, 0deg); */
     }
     100% {
       background-repeat: repeat;
-      opacity: 0.9;
-      transform: skew(0deg, 0.2deg);
+      /* transform: skew(0deg, 0.2deg); */
     }
   }
 
