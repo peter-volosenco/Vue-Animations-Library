@@ -35,41 +35,36 @@
 /*  eslint-disable */
 
   export default {
+    data() {
+      return {
+        size: "auto",
+        attachment: "fixed",
+        position: "center",
+      }
+    },
     mounted() {
+      let self = this;
       document.addEventListener("scroll", onscroll);
 
       function onscroll() {
-        
+        console.log(window.scrollY);
+        let scrollAmount = window.scrollY;
+        let offset = 0;
+        var scroll = scrollAmount * 0.1;
+
+        if (scroll <= offset) {
+          self.size = "auto";
+          self.position = "right " + (offset - scroll) + "px";
+        }
+           if (window.innerWidth > 1024) {
+        } else {
+          self.size = "auto";
+          self.position = "right center";
+          self.attachment = "initial";
+        }
       }
     }
   }
     
-  //$(document).ready(function(){
-  //    $(".home-slide-image").css("background-position", "center 150px");
-  //    checkbackground();
-  //});
-
-  //$(window).scroll(function () {
-
-  //    checkbackground();
-      
-
-  //});
-
-  //function checkbackground() {
-  //    var scroll = $(window).scrollTop() * 0.1;
-  //    var offset = 150;
-  //    if (scroll <= offset) {
-  //        $(".home-slide-image").css("background-size", "auto");
-  //        $(".home-slide-image").css("background-position", "right " + (offset - scroll) + "px");
-  //    }
-
-  //    //    if ($(window).width() > 1024) {
-  //    //} else {
-  //    //    $(".home-slide-image").css("background-position", "right center");
-  //    //    $(".home-slide-image").css("background-attachment", "initial");
-  //    //}
-  //}
-
 
 </script>
