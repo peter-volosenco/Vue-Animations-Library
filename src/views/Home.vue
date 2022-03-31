@@ -13,6 +13,8 @@
 </template>
 
 <script>
+/*  eslint-disable */
+
 import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
