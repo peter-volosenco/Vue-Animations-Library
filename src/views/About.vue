@@ -22,19 +22,58 @@
 </template>
 
 <style scoped>
-  img {width:100%; opacity: 0.6;}
+  img {
+    width:100%;
+    opacity: 0.6;
+    animation: rotateGrow 5000ms ease infinite alternate;
+  }
+
+  @keyframes rotateGrow {
+    0% {
+      transform:scale(1) rotate(0);
+    }
+    50% {
+      transform:scale(1.1) rotate(2deg);
+    }
+    100% {
+      transform:scale(1) rotate(0);
+    }
+  }
 
   .parallax-overlay {
     background-image: url("~@/img/Festive-Pattern-blue.png");
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     margin: 100px 0;
+    width: 100%;
+    overflow: hidden;
+    animation: repeatBG 3200ms ease infinite alternate;
   }
+
+  @keyframes repeatBG {
+    0% {
+      background-repeat: repeat-x;
+      opacity: 0.9;
+      transform: skew(0deg, 0.2deg);
+    }
+    50% {
+      background-repeat: repeat-y;
+      opacity: 1;
+      transform: skew(0deg, 0deg);
+    }
+    100% {
+      background-repeat: repeat;
+      opacity: 0.9;
+      transform: skew(0deg, 0.2deg);
+    }
+  }
+
   .parallax-overlay:nth-child(2n) {
     background-position: -100%;
   }
+
 </style>
 
 <script>
