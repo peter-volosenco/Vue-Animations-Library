@@ -2,10 +2,6 @@
   <div class="about">
     <h1>This is an about page</h1>
 
-    <div class="parallax-overlay" :style="{ backgroundPosition: position, backgroundSize: sizeAlter }">
-      <img src="@/img/ice-bg.jpg"/>
-    </div>
-
     <div class="parallax-overlay" :style="{ backgroundPosition: position, backgroundSize: size }">
       <img src="@/img/ice-bg2.jpg"/>
     </div>
@@ -16,6 +12,10 @@
 
     <div class="parallax-overlay" :style="{ backgroundPosition: position, backgroundSize: size }">
       <img src="@/img/ice-bg4.jpg"/>
+    </div>
+
+    <div class="parallax-overlay overlayBgAnim">
+      <img src="@/img/ice-bg.jpg"/>
     </div>
 
   </div>
@@ -67,6 +67,26 @@
       background-repeat: repeat;
       opacity: 0.9;
       transform: skew(0deg, 0.2deg);
+    }
+  }
+
+  .overlayBgAnim {
+    background-repeat: repeat;
+    animation: repeatBG2 12000ms ease infinite;
+  }
+
+    @keyframes repeatBG2 {
+    0% {
+      background-position: 0 0;
+    }
+    25% {
+      background-position: -2000px 2000px;
+    }
+    50% {
+      background-position: -2000px 0px;
+    }
+    100% {
+      background-position: 0 0;
     }
   }
 
