@@ -2,54 +2,51 @@
   <div class="about">
     <h1><span>This is an </span><span>about page</span></h1>
 
-    <div class="relative">
-      <div class="parallax-overlay" :style="{ backgroundPosition: position, backgroundSize: size }"></div>
-      <img src="@/img/ice-bg2.jpg"/>
-    </div>
-
-    <div class="relative">
-      <div class="parallax-overlay" :style="{ backgroundPosition: position, backgroundSize: sizeAlter }"></div>
-      <img src="@/img/ice-bg3.jpg"/>
-    </div>
-
-    <div class="relative">
-      <div class="parallax-overlay" :style="{ backgroundPosition: position, backgroundSize: size }"></div>
-      <img src="@/img/ice-bg4.jpg"/>
-    </div>
-
-    <div class="relative">
-      <div class="parallax-overlay overlayBgAnim"></div>
-      <img src="@/img/ice-bg.jpg"/>
+    <div v-for="n in 3" :key="n" style="margin: 12vh 0;">
+      <div class="relative">
+        <div class="parallax-overlay"></div>
+        <img :src="require('@/img/ice-bg'+ n +'.jpg')"/>
+      </div>
     </div>
 
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+  /* eslint-disable */
   .about {
     padding-bottom: 900px;
+    min-height: 100vh;
   }
   h1 {
-    margin-bottom: 300px;
+    margin-bottom: 5vh;
     position: relative;
     z-index: 5;
     transform: rotate(15deg);
-  }
-  h1 span {display: inline-block; padding: 2px 4px;}
-  h1 span:nth-child(odd) {
-    background-color: white;
-    padding-left: 6px;
-    transform: skewX(-15deg);
-  }
-   h1 span:nth-child(even) {
-    background-color: black;
-    padding-right: 6px;
-    transform: skewX(-15deg);
+
+    span {
+      display: inline-block; padding: 2px 4px;
+    }
+
+    span:nth-child(odd) {
+      background-color: white;
+      padding-left: 6px;
+      transform: skewX(-15deg);
+    }
+
+    span:nth-child(even) {
+      background-color: black;
+      padding-right: 6px;
+      transform: skewX(-15deg);
+    }
   }
 
   .relative {
     position: relative;
-    margin: -300px 0;
+    height: 60vh;
+    overflow: hidden;
+        box-shadow: 0 12px 24px rgba(0,0,0, 0.3);
+    border: 8px solid #F3F3F5;
   }
 
   img {
@@ -57,11 +54,11 @@
   }
 
   .relative:nth-child(odd) {
-    animation: imgRotateAnim 5000ms ease infinite alternate;
+    // animation: imgRotateAnim 5000ms ease infinite alternate;
   }
 
   .relative:nth-child(even) {
-    animation: imgRotateAlterAnim 5000ms ease infinite alternate;
+    // animation: imgRotateAlterAnim 5000ms ease infinite alternate;
   }
 
   @keyframes imgRotateAnim {
@@ -89,35 +86,35 @@
   }
 
   .parallax-overlay {
-    background-image: url("~@/img/Festive-Pattern-blue.png");
+    background-image: url("~@/img/Festive-Pattern.svg");
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 100%;
     overflow: hidden;
-    animation: repeatBG 3200ms ease infinite alternate;
-    box-shadow: 0 12px 24px rgba(0,0,0, 0.3);
+    // animation: repeatBG 3200ms ease infinite alternate;
+
     position: absolute;
     left: 0;
     top:0;
-    width:100%;
+
+    width: 100%;
     height: 100%;
+
+    // width: calc(100% - 16px);
+    // height: calc(100% - 16px);
     z-index: 2;
   }
 
   @keyframes repeatBG {
     0% {
       background-repeat: repeat-x;
-      /* transform: skew(0deg, 0.2deg); */
     }
     50% {
       background-repeat: repeat-y;
-      /* transform: skew(0deg, 0deg); */
     }
     100% {
       background-repeat: repeat;
-      /* transform: skew(0deg, 0.2deg); */
     }
   }
 
@@ -161,7 +158,7 @@
     },
     mounted() {
       let self = this;
-      document.addEventListener("scroll", onscroll);
+      // document.addEventListener("scroll", onscroll);
 
       function onscroll() {
         console.log(window.scrollY);
